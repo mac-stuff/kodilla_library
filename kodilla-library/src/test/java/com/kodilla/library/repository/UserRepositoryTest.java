@@ -37,8 +37,8 @@ class UserRepositoryTest {
     @Test
     public void testUserRepositoryFindAll() {
         //Given
-        User user1 = new User(1L, "Jan", "Nowak", LocalDate.of(2020, 1, 8));
-        User user2 = new User(2L, "Anna", "Nowak", LocalDate.of(2021, 1, 13));
+        User user1 = new User( "Jan", "Nowak", LocalDate.of(2020, 1, 8));
+        User user2 = new User( "Anna", "Nowak", LocalDate.of(2021, 1, 13));
 
         //When
         userRepository.save(user1);
@@ -58,8 +58,8 @@ class UserRepositoryTest {
     @Test
     public void testUserRepositoryDeleteById() {
         //Given
-        User user1 = new User(1L, "Jan", "Nowak", LocalDate.of(2020, 1, 8));
-        User user2 = new User(2L, "Anna", "Nowak", LocalDate.of(2021, 1, 13));
+        User user1 = new User( "Jan", "Nowak", LocalDate.of(2020, 1, 8));
+        User user2 = new User("Anna", "Nowak", LocalDate.of(2021, 1, 13));
 
         //When
         userRepository.save(user1);
