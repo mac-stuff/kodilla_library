@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,7 +19,7 @@ class UserRepositoryTest {
     @Test
     public void testUserRepositoryFindById() {
         //Given
-        User user = new User("Jan", "Nowak", LocalDate.of(2020, 1, 8));
+        User user = new User();
 
         //When
         userRepository.save(user);
@@ -37,8 +36,8 @@ class UserRepositoryTest {
     @Test
     public void testUserRepositoryFindAll() {
         //Given
-        User user1 = new User( "Jan", "Nowak", LocalDate.of(2020, 1, 8));
-        User user2 = new User( "Anna", "Nowak", LocalDate.of(2021, 1, 13));
+        User user1 = new User();
+        User user2 = new User();
 
         //When
         userRepository.save(user1);
@@ -58,8 +57,8 @@ class UserRepositoryTest {
     @Test
     public void testUserRepositoryDeleteById() {
         //Given
-        User user1 = new User( "Jan", "Nowak", LocalDate.of(2020, 1, 8));
-        User user2 = new User("Anna", "Nowak", LocalDate.of(2021, 1, 13));
+        User user1 = new User();
+        User user2 = new User();
 
         //When
         userRepository.save(user1);

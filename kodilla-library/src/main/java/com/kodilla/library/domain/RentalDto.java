@@ -7,11 +7,11 @@ import java.time.LocalDate;
 
 @Getter
 @AllArgsConstructor
-public class UserDto {
+public class RentalDto {
 
     private final Long id;
-    private final String name;
-    private final String surname;
-    private final LocalDate date;
-    private final Rental rental;
+    private final Copy copy;
+    private final User user;
+    private final LocalDate rentDate;
+    private final LocalDate returnDate;
 }

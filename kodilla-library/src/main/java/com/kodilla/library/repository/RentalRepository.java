@@ -1,7 +1,6 @@
 package com.kodilla.library.repository;
 
-import com.kodilla.library.domain.Book;
-import jdk.jfr.Registered;
+import com.kodilla.library.domain.Rental;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -9,14 +8,14 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface BookRepository extends CrudRepository<Book, Long> {
+public interface RentalRepository extends CrudRepository<Rental, Long> {
 
     @Override
-    List<Book> findAll();
+    List<Rental> findAll();
 
     @Override
-    Optional<Book> findById(Long bookId);
+    Optional<Rental> findById(Long rentalId);
 
     @Override
-    void deleteById(Long bookId);
+    void deleteById(Long rentalId);
 }

@@ -7,15 +7,14 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 @Entity
-@Table(name = "USERS")
-public class User {
+@Table(name = "COPIES")
+public class Copy {
 
     @Id
     @GeneratedValue
@@ -23,16 +22,14 @@ public class User {
     @Column(name = "ID", unique = true)
     private Long id;
 
-    @Column(name = "NAME")
-    private String name;
-
-    @Column(name = "SURNAME")
-    private String surname;
-
-    @Column(name = "DATE")
-    private LocalDate date;
+    @ManyToOne
+    @JoinColumn(name = "TITLE_ID")
+    private Title title;
 
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "RENTAL_ID")
     private Rental rental;
+
+    @Column(name = "IS_BORROW")
+    private Boolean isBorrow;
 }

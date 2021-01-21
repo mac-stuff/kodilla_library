@@ -3,15 +3,12 @@ package com.kodilla.library.domain;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-import java.time.LocalDate;
-
 @Getter
 @AllArgsConstructor
-public class UserDto {
+public class CopyDto {
 
     private final Long id;
-    private final String name;
-    private final String surname;
-    private final LocalDate date;
+    private final Title title;
     private final Rental rental;
+    private final Boolean isBorrow;
 }

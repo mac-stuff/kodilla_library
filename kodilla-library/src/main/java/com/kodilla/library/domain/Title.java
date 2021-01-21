@@ -1,38 +1,28 @@
 package com.kodilla.library.domain;
 
 import com.sun.istack.NotNull;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
 @Entity
-@Table(name = "LIBRARY_BOOKS")
-public class Book {
-
-    public Book(Long id, String title, String author, LocalDate publicationDate) {
-        this.id = id;
-        this.title = title;
-        this.author = author;
-        this.publicationDate = publicationDate;
-    }
-
-    public Book(String title, String author, LocalDate publicationDate) {
-        this.title = title;
-        this.author = author;
-        this.publicationDate = publicationDate;
-    }
+@Table(name = "TITLES")
+public class Title {
 
     @Id
     @GeneratedValue
     @NotNull
     @Column(name = "ID", unique = true)
-    private Long id;
+    public Long id;
 
     @Column(name = "TITLE")
     private String title;
@@ -42,4 +32,12 @@ public class Book {
 
     @Column(name = "PUBLICATION_DATE")
     private LocalDate publicationDate;
+
+    @OneToMany(
+            targetEntity = Copy.class,
+            mappedBy = "title",
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY
+    )
+    public List<Copy> copies;
 }
