@@ -73,4 +73,20 @@ class RentalRepositoryTest {
         //CleanUp
         rentalRepository.deleteById(id1);
     }
+
+    @Test
+    public void testRentalRepositoryCreate() {
+        //Given
+        Rental rental = new Rental();
+
+        //When
+        rentalRepository.save(rental);
+
+        //Then
+        Long id = rental.getId();
+        assertEquals(1, rentalRepository.findAll().size());
+
+        //CleanUp
+        rentalRepository.deleteById(id);
+    }
 }

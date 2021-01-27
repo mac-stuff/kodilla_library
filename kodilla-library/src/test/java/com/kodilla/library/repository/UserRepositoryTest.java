@@ -73,4 +73,20 @@ class UserRepositoryTest {
         //CleanUp
         userRepository.deleteById(id1);
     }
+
+    @Test
+    public void testUserRepositoryCreate() {
+        //Given
+        User user = new User();
+
+        //When
+        userRepository.save(user);
+
+        //Then
+        Long id = user.getId();
+        assertEquals(1, userRepository.findAll().size());
+
+        //CleanUp
+        userRepository.deleteById(id);
+    }
 }

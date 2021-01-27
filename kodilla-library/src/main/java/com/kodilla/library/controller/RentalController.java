@@ -2,6 +2,7 @@ package com.kodilla.library.controller;
 
 import com.kodilla.library.domain.Rental;
 import com.kodilla.library.domain.RentalDto;
+import com.kodilla.library.exceptions.RentalNotFoundException;
 import com.kodilla.library.mapper.RentalMapper;
 import com.kodilla.library.service.DBService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,9 +43,13 @@ public class RentalController {
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "createRental", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void createTask(@RequestBody RentalDto rentalDto) {
+    public void createRental(@RequestBody RentalDto rentalDto) {
         Rental rental = rentalMapper.mapToRental(rentalDto);
         service.saveRental(rental);
     }
-}
 
+    @RequestMapping(method = RequestMethod.PUT, value = "updateRental")
+    public RentalDto updateRental(@RequestBody RentalDto rentalDto) {
+        return rentalMapper.mapToRentalDto(service.saveRental(rentalMapper.mapToRental(rentalDto)));
+    }
+}

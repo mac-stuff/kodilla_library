@@ -2,6 +2,7 @@ package com.kodilla.library.controller;
 
 import com.kodilla.library.domain.User;
 import com.kodilla.library.domain.UserDto;
+import com.kodilla.library.exceptions.UserNotFoundException;
 import com.kodilla.library.mapper.UserMapper;
 import com.kodilla.library.service.DBService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,8 +43,13 @@ public class UserController {
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "createUser", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void createTask(@RequestBody UserDto userDto) {
+    public void createUser(@RequestBody UserDto userDto) {
         User user = userMapper.mapToUser(userDto);
         service.saveUser(user);
+    }
+
+    @RequestMapping(method = RequestMethod.PUT, value = "updateUser")
+    public UserDto updateUser(@RequestBody UserDto userDto) {
+        return userMapper.mapToUserDto(service.saveUser(userMapper.mapToUser(userDto)));
     }
 }

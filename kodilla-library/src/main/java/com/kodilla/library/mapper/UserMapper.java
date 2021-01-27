@@ -15,8 +15,7 @@ public class UserMapper {
                 userDto.getId(),
                 userDto.getName(),
                 userDto.getSurname(),
-                userDto.getDate(),
-                userDto.getRental()
+                userDto.getDate()
         );
     }
 
@@ -25,8 +24,7 @@ public class UserMapper {
                 user.getId(),
                 user.getName(),
                 user.getSurname(),
-                user.getDate(),
-                user.getRental()
+                user.getDate()
         );
     }
 

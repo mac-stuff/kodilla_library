@@ -73,4 +73,20 @@ class CopyRepositoryTest {
         //CleanUp
         copyRepository.deleteById(id1);
     }
+
+    @Test
+    public void testCopyRepositoryCreate() {
+        //Given
+        Copy copy = new Copy();
+
+        //When
+        copyRepository.save(copy);
+
+        //Then
+        Long id = copy.getId();
+        assertEquals(1, copyRepository.findAll().size());
+
+        //CleanUp
+        copyRepository.deleteById(id);
+    }
 }

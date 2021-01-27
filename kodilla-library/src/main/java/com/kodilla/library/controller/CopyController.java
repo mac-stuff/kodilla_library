@@ -2,6 +2,7 @@ package com.kodilla.library.controller;
 
 import com.kodilla.library.domain.Copy;
 import com.kodilla.library.domain.CopyDto;
+import com.kodilla.library.exceptions.CopyNotFoundException;
 import com.kodilla.library.mapper.CopyMapper;
 import com.kodilla.library.service.DBService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,8 +43,13 @@ public class CopyController {
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "createCopy", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void createTask(@RequestBody CopyDto copyDto) {
+    public void createCopy(@RequestBody CopyDto copyDto) {
         Copy copy = copyMapper.mapToCopy(copyDto);
         service.saveCopy(copy);
+    }
+
+    @RequestMapping(method = RequestMethod.PUT, value = "updateCopy")
+    public CopyDto updateCopy(@RequestBody CopyDto copyDto) {
+        return copyMapper.mapToCopyDto(service.saveCopy(copyMapper.mapToCopy(copyDto)));
     }
 }

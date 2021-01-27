@@ -13,5 +13,4 @@ public class UserDto {
     private final String name;
     private final String surname;
     private final LocalDate date;
-    private final Rental rental;
 }

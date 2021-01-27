@@ -17,23 +17,24 @@ class TitleRepositoryTest {
     private TitleRepository titleRepository;
 
     @Test
-    public void testBookRepositoryFindById() {
+    public void testTitleRepositoryFindById() {
         //Given
         Title title = new Title();
+
         //When
         titleRepository.save(title);
 
         //Then
         Long id = title.getId();
-        Optional<Title> readBook = titleRepository.findById(id);
-        assertTrue(readBook.isPresent());
+        Optional<Title> readTitle = titleRepository.findById(id);
+        assertTrue(readTitle.isPresent());
 
         //CleanUp
         titleRepository.deleteById(id);
     }
 
     @Test
-    public void testBookRepositoryFindAll() {
+    public void testTitleRepositoryFindAll() {
         //Given
         Title title1 = new Title();
         Title title2 = new Title();
@@ -54,7 +55,7 @@ class TitleRepositoryTest {
     }
 
     @Test
-    public void testBookRepositoryDeleteById() {
+    public void testTitleRepositoryDeleteById() {
         //Given
         Title title1 = new Title();
         Title title2 = new Title();
@@ -71,5 +72,21 @@ class TitleRepositoryTest {
 
         //CleanUp
         titleRepository.deleteById(id1);
+    }
+
+    @Test
+    public void testTitleRepositoryCreate() {
+        //Given
+        Title title = new Title();
+
+        //When
+        titleRepository.save(title);
+
+        //Then
+        Long id = title.getId();
+        assertEquals(1, titleRepository.findAll().size());
+
+        //CleanUp
+        titleRepository.deleteById(id);
     }
 }

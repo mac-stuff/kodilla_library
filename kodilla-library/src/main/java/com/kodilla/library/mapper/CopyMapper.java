@@ -14,7 +14,6 @@ public class CopyMapper {
         return new Copy(
                 copyDto.getId(),
                 copyDto.getTitle(),
-                copyDto.getRental(),
                 copyDto.getIsBorrow());
     }
 
@@ -22,7 +21,6 @@ public class CopyMapper {
         return new CopyDto(
                 copy.getId(),
                 copy.getTitle(),
-                copy.getRental(),
                 copy.getIsBorrow());
     }
 

@@ -1,7 +1,7 @@
 package com.kodilla.library.controller;
 
-import com.kodilla.library.domain.Title;
-import com.kodilla.library.domain.TitleDto;
+import com.kodilla.library.domain.*;
+import com.kodilla.library.exceptions.TitleNotFoundException;
 import com.kodilla.library.mapper.TitleMapper;
 import com.kodilla.library.service.DBService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,14 +36,26 @@ public class TitleController {
         );
     }
 
+    @RequestMapping(method = RequestMethod.GET, value = "getAvailableCopiesCount")
+    public Long getAvailableCopies(@RequestParam Long TitleId) throws TitleNotFoundException {
+        TitleDto titleId = titleMapper.mapToTitleDto(
+                service.getTitle(TitleId).orElseThrow(TitleNotFoundException::new));
+        return titleId.getCopies().stream().filter(c -> !c.getIsBorrow()).count();
+    }
+
     @RequestMapping(method = RequestMethod.DELETE, value = "deleteTitle")
     public void deleteTitle(@RequestParam Long TitleId) {
         service.deleteTitle(TitleId);
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "createTitle", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void createTask(@RequestBody TitleDto titleDto) {
+    public void createTitle(@RequestBody TitleDto titleDto) {
         Title title = titleMapper.mapToTitle(titleDto);
         service.saveTitle(title);
+    }
+
+    @RequestMapping(method = RequestMethod.PUT, value = "updateTitle")
+    public TitleDto updateTitle(@RequestBody TitleDto titleDto) {
+        return titleMapper.mapToTitleDto(service.saveTitle(titleMapper.mapToTitle(titleDto)));
     }
 }

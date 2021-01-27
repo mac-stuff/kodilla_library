@@ -40,8 +40,8 @@ public class DBService {
         return userRepository.findById(id);
     }
 
-    public void saveUser(final User user) {
-        userRepository.save(user);
+    public User saveUser(final User user) {
+        return userRepository.save(user);
     }
 
     public void deleteUser(final Long userId) {
@@ -57,8 +57,8 @@ public class DBService {
         return titleRepository.findById(id);
     }
 
-    public void saveTitle(final Title title) {
-        titleRepository.save(title);
+    public Title saveTitle(final Title title) {
+        return titleRepository.save(title);
     }
 
     public void deleteTitle(final Long TitleId) {
@@ -74,8 +74,8 @@ public class DBService {
         return copyRepository.findById(id);
     }
 
-    public void saveCopy(final Copy copy) {
-        copyRepository.save(copy);
+    public Copy saveCopy(final Copy copy) {
+        return copyRepository.save(copy);
     }
 
     public void deleteCopy(final Long copyId) {
@@ -90,8 +90,8 @@ public class DBService {
         return rentalRepository.findById(id);
     }
 
-    public void saveRental(final Rental rental) {
-        rentalRepository.save(rental);
+    public Rental saveRental(final Rental rental) {
+        return rentalRepository.save(rental);
     }
 
     public void deleteRental(final Long rentalId) {

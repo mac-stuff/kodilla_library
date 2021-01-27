@@ -26,10 +26,6 @@ public class Copy {
     @JoinColumn(name = "TITLE_ID")
     private Title title;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "RENTAL_ID")
-    private Rental rental;
-
     @Column(name = "IS_BORROW")
     private Boolean isBorrow;
 }
