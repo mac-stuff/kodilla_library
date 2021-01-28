@@ -14,5 +14,5 @@ public class TitleDto {
     private final String title;
     private final String author;
     private final LocalDate publicationDate;
-    public List<Copy> copies;
+    public List<CopyDto> copiesDto;
 }
