@@ -10,8 +10,8 @@ import java.time.LocalDate;
 public class RentalDto {
 
     private final Long id;
-    private final Copy copy;
-    private final User user;
+    private final CopyDto copyDto;
+    private final UserDto userDto;
     private final LocalDate rentDate;
     private final LocalDate returnDate;
 }
