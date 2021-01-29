@@ -40,7 +40,7 @@ public class TitleController {
     public Long getAvailableCopies(@RequestParam Long TitleId) throws TitleNotFoundException {
         TitleDto titleId = titleMapper.mapToTitleDto(
                 service.getTitle(TitleId).orElseThrow(TitleNotFoundException::new));
-        return titleId.getCopiesDto().stream().filter(c -> !c.getIsBorrow()).count();
+        return titleId.getCopies().stream().filter(c -> !c.getIsBorrow()).count();
     }
 
     @RequestMapping(method = RequestMethod.DELETE, value = "deleteTitle")
