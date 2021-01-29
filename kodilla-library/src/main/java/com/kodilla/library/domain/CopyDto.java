@@ -8,6 +8,6 @@ import lombok.Getter;
 public class CopyDto {
 
     private final Long id;
-    private final TitleDto titleDto;
+    private final TitleDto title;
     private final Boolean isBorrow;
 }

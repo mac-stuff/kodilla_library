@@ -31,8 +31,4 @@ public class User {
 
     @Column(name = "DATE")
     private LocalDate date;
-
-//    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-//    @JoinColumn(name = "RENTAL_ID")
-//    private Rental rental;
 }

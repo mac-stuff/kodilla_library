@@ -17,7 +17,7 @@ public class CopyMapper {
     public Copy mapToCopy(final CopyDto copyDto) {
         return new Copy(
                 copyDto.getId(),
-                titleMapper.mapToTitle(copyDto.getTitleDto()),
+                titleMapper.mapToTitle(copyDto.getTitle()),
                 copyDto.getIsBorrow());
     }
 

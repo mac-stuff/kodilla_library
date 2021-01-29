@@ -20,8 +20,8 @@ public class RentalMapper {
     public Rental mapToRental(final RentalDto rentalDto) {
         return new Rental(
                 rentalDto.getId(),
-                copyMapper.mapToCopy(rentalDto.getCopyDto()),
-                userMapper.mapToUser(rentalDto.getUserDto()),
+                copyMapper.mapToCopy(rentalDto.getCopy()),
+                userMapper.mapToUser(rentalDto.getUser()),
                 rentalDto.getRentDate(),
                 rentalDto.getReturnDate()
         );

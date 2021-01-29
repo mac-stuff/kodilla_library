@@ -20,7 +20,7 @@ public class TitleMapper {
                 titleDto.getTitle(),
                 titleDto.getAuthor(),
                 titleDto.getPublicationDate(),
-                copyMapper.mapToCopiesList(titleDto.getCopiesDto())
+                copyMapper.mapToCopiesList(titleDto.getCopies())
         );
     }
 
